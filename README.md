@@ -4,4 +4,4 @@
 
  # How to use
 
- Open your spread sheet project and paste app script.js in code.gs. You have to modify the manifast so that the script has permission to execute.
+ Open your spread sheet project and paste app script.gs in code.gs. You have to modify the manifast so that the script has permission to execute.
