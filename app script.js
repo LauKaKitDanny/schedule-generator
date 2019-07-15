@@ -46,7 +46,7 @@ function isCourseExist(alias) {
 }
 
 
-function drawClassOnTimetable(className, classNamwArray, week, startTime, endTime, form) {
+function drawClassOnTimetable(className, classNameArray, week, startTime, endTime, form) {
   if (!isCourseExist(className))
     registerNewCourse(className);
   week = week2Number(week);
@@ -61,17 +61,17 @@ function drawClassOnTimetable(className, classNamwArray, week, startTime, endTim
   var timeSlot = timetablePage.getRange(startCell, week + 1, cellLength, 1);
   timeSlot.clearFormat().clearContent().setBackground(course[className].colour).setBorder(true, true, true, true, false, false, "#000000", null).setHorizontalAlignment('center');
   var classNameUsedSpace = 1;
-  if (classNamwArray.length == 1) { //only one class is hold in this time slot
+  if (classNameArray.length == 1) { //only one class is hold in this time slot
     timeSlot.getCell(1, 1).setValue(className);
     ++classNameUsedSpace;
   } else {
     //more than one class is hold in this time slot
-    var numberOfClassName = Math.ceil(classNamwArray.length / (cellLength - 2));  //calculate how many classes can be displayed in a cell
-    for (var i = 0; i < classNamwArray.length; i += numberOfClassName) {
-      var text = classNamwArray[i];
+    var numberOfClassName = Math.ceil(classNameArray.length / (cellLength - 2));  //calculate how many classes can be displayed in a cell
+    for (var i = 0; i < classNameArray.length; i += numberOfClassName) {
+      var text = classNameArray[i];
       for (var r = 1; r < numberOfClassName; r++) {
-        if (i + r < classNamwArray.length) {
-          text += '/' + classNamwArray[i + r];
+        if (i + r < classNameArray.length) {
+          text += '/' + classNameArray[i + r];
         } else {
           break;
         }
